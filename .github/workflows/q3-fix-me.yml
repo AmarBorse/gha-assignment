@@ -1,18 +1,19 @@
-name: CI
+name: Q3 Release Notes
 
-on
-  push
+on:
+  push:
     branches: [main]
-  workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest-large
+    runs-on: ubuntu-latest
+
     steps:
+      - uses: actions/checkout@v4
+
       - name: List repository files
         run: ls -la
 
       - name: Run the hello script
         run: bash scripts/hello.sh
-
-      - uses: actions/checkout
